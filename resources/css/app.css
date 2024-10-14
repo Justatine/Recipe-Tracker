@@ -3,6 +3,6 @@
 }
 
 .link.active{
-    background-color: red;
-    color: white;
+    color: rgba(0, 89, 255, 0.712);
+    padding: 0%;
 }

@@ -9,7 +9,7 @@ class Dish extends Model
 {
     use HasFactory;
     protected $primaryKey = 'dishId';
-    protected $fillable = ['userId', 'recipeId', 'name', 'description'];
+    protected $fillable = ['userId', 'name', 'description'];
     public $timestamps = true; 
 
     public function user(){

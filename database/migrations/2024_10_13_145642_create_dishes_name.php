@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Dish;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,15 +19,20 @@ return new class extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger(column: 'recipeId');
-            $table->foreign('recipeId')
-                ->references('recipeId')
-                ->on('recipes')
-                ->onDelete('cascade');
             $table->string('name');
             $table->text('description');
             $table->timestamps();
         });
+
+        Dish::insert([
+            [
+                'userId'=>'1',
+                'name'=>'Chicken Adobo',
+                'description'=>'Yummy chicken',
+                'created_at' => now(),
+                'updated_at' => now()
+            ]
+        ]);    
     }
 
     /**

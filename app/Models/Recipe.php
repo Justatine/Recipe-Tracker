@@ -9,7 +9,7 @@ class Recipe extends Model
 {
     use HasFactory;
     protected $primaryKey = 'recipeId';
-    protected $fillable = ['ingredient'];
+    protected $fillable = ['dishId', 'ingredient'];
     public $timestamps = true; 
 
     public function dish(){

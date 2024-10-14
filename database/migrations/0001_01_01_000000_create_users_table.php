@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 
 return new class extends Migration
 {
@@ -15,9 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
 
@@ -35,6 +34,30 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+        
+        User::insert([
+            [
+                'name'=>'Justine',
+                'email'=>'tagaanjustinemark3@gmail.com',
+                'password'=>Hash::make('asd'),
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'name'=>'Mark',
+                'email'=>'tagaanjustinemark2@gmail.com',
+                'password'=>Hash::make('asd'),
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'name'=>'Adelle',
+                'email'=>'adellepabriga@gmail.com',
+                'password'=>Hash::make('asd'),
+                'created_at' => now(),
+                'updated_at' => now()
+            ]
+        ]);
     }
 
     /**
